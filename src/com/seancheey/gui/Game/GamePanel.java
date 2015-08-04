@@ -6,12 +6,9 @@ import com.seancheey.gui.Game.Bar.StatusBar;
 
 public class GamePanel extends StdPanel {
 	private static final long serialVersionUID = 1L;
-
 	public static Game game;
-
 	public static GameBar bar;
 	public static Animation animation;
-	private MainFrame mainFrame;
 
 	public GamePanel(MainFrame mainFrame) {
 		super(mainFrame);

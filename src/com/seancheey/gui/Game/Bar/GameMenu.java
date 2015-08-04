@@ -22,9 +22,8 @@ public class GameMenu extends StdPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
 	private static final int buttonNum = 2;
-	private JButton[] button = new JButton[buttonNum];
-	private Image[] buttonIcon = new Image[buttonNum];
-	private MainFrame mainFrame;
+	private JButton[] button;
+	private Image[] buttonIcon;
 
 	public GameMenu(MainFrame mainFrame) {
 		super(mainFrame);
@@ -47,6 +46,8 @@ public class GameMenu extends StdPanel implements ActionListener {
 		setSize(GuiTool.fitSize(350, 50));
 		setBackground(Color.GREEN);
 		// buttons
+		button = new JButton[buttonNum];
+		buttonIcon = new Image[buttonNum];
 		for (int ba = 0; ba < buttonNum; ba++) {
 			button[ba] = new JButton();
 			buttonIcon[ba] = Toolkit.getDefaultToolkit().getImage("resource/Button/avoiderButton" + (ba + 6) + ".png");
