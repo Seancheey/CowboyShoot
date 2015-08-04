@@ -84,6 +84,11 @@ public class Game extends JPanel {
 		GamePanel.animation.paint(g);
 	}
 
+	@Override
+	public void update(Graphics g) {
+		paint(g);
+	}
+
 	/** ESSENTIAL!!!! */
 	@Override
 	protected void paintComponent(Graphics g) {
