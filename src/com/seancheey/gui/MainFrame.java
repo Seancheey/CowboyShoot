@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import com.seancheey.data.KeyHandling.KeyHandler;
 
 public class MainFrame extends JFrame {
@@ -28,6 +29,12 @@ public class MainFrame extends JFrame {
 		keyhandler = new KeyHandler();
 		addKeyListener(keyhandler);
 		repaint();
+		startUp();
+	}
+	
+	private void startUp(){
+		getContentPane().add(new Menu(this));
+		getContentPane().repaint();
 	}
 
 	public void switchPanel(JPanel oldPanel, JPanel newPanel) {
