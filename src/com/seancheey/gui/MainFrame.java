@@ -13,7 +13,6 @@ public class MainFrame extends JFrame {
 	private static Image icon;
 	public final static double screenRatio = (double) 900 / (double) 600;
 	public static Dimension frameSize = GuiTool.getFittedSize(screenRatio);
-	public static MainPanel mainPanel;
 
 	public KeyHandler keyhandler;
 
@@ -28,17 +27,15 @@ public class MainFrame extends JFrame {
 		setIconImage(icon);
 		keyhandler = new KeyHandler();
 		addKeyListener(keyhandler);
-		mainPanel = new MainPanel(this);
-		getContentPane().add(mainPanel);
 		repaint();
 	}
 
 	public void switchPanel(JPanel oldPanel, JPanel newPanel) {
 		newPanel.setEnabled(true);
-		mainPanel.add(newPanel);
-		mainPanel.remove(oldPanel);
+		getContentPane().add(newPanel);
+		getContentPane().remove(oldPanel);
 		oldPanel.setEnabled(false);
 		keyhandler.switchPanel(newPanel);
-		mainPanel.repaint();
+		getContentPane().repaint();
 	}
 }
