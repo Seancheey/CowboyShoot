@@ -6,8 +6,6 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-import com.seancheey.data.Mainclass;
 import com.seancheey.data.KeyHandling.KeyHandler;
 
 public class MainFrame extends JFrame {
@@ -31,7 +29,7 @@ public class MainFrame extends JFrame {
 		keyhandler = new KeyHandler();
 		addKeyListener(keyhandler);
 		mainPanel = new MainPanel(this);
-		add(mainPanel);
+		getContentPane().add(mainPanel);
 		repaint();
 	}
 
