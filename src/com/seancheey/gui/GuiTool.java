@@ -1,12 +1,9 @@
 package com.seancheey.gui;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
-
 import javax.swing.JComponent;
-import javax.swing.JPanel;
 
 public class GuiTool {
 
@@ -48,20 +45,6 @@ public class GuiTool {
 		else
 			System.out.println("Unable to read the size of the screen");
 		return null;
-	}
-
-	public static void initializePanel(JPanel panel) {
-		initializePanel(panel, MainFrame.frameSize);
-	}
-
-	public static void initializePanel(JPanel panel, Dimension size) {
-		panel.setLayout(null);
-		panel.setSize(size);
-		panel.setBackground(Color.white);
-	}
-
-	public static void initializePanel(JPanel panel, int width, int heigth) {
-		initializePanel(panel, new Dimension(width, heigth));
 	}
 
 	public static void setBounds(JComponent component, int px, int py, int width, int height) {

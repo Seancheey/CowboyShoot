@@ -28,7 +28,6 @@ public class Rank extends StdPanel implements ActionListener {
 
 	@Override
 	protected void init() {
-		GuiTool.initializePanel(this);
 		// exitButton
 		exitButton = new JButton("Back");
 		exitButton.setFont(new Font("Bradley Hand ITC", Font.BOLD, 50));
