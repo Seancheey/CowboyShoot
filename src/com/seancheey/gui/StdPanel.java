@@ -19,6 +19,11 @@ public class StdPanel extends JPanel {
 	}
 
 	public void switchTo(StdPanel newPanel) {
-		mainFrame.switchPanel(this, newPanel);
+		if (mainFrame == null)
+			throw new NullPointerException("mainFrame is null");
+		else if (newPanel == null)
+			throw new NullPointerException("newPanel is null");
+		else
+			mainFrame.switchPanel(this, newPanel);
 	}
 }

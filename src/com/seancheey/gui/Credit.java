@@ -78,7 +78,6 @@ public class Credit extends StdPanel implements ActionListener {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-
 		title.setLocation((MainFrame.frameSize.width - title.getWidth()) / 2, py);
 		for (int ba = 0; ba < labelNum; ba++)
 			label[ba].setLocation((MainFrame.frameSize.width - label[ba].getWidth()) / 2,
@@ -89,7 +88,6 @@ public class Credit extends StdPanel implements ActionListener {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		mainFrame.repaint();
 	}
 
 }

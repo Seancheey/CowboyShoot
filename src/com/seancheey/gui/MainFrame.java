@@ -29,12 +29,6 @@ public class MainFrame extends JFrame {
 		keyhandler = new KeyHandler();
 		addKeyListener(keyhandler);
 		repaint();
-		startUp();
-	}
-	
-	private void startUp(){
-		getContentPane().add(new Menu(this));
-		getContentPane().repaint();
 	}
 
 	public void switchPanel(JPanel oldPanel, JPanel newPanel) {

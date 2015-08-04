@@ -23,7 +23,6 @@ public class Menu extends StdPanel implements ActionListener {
 	private static Image titleIcon = Toolkit.getDefaultToolkit().getImage("resource/Label/Title.png");
 	private static JLabel versionLabel = new JLabel(Mainclass.version);
 	private static boolean firstTime = true;
-	private MainFrame mainFrame;
 
 	public Menu(MainFrame mainFrame) {
 		super(mainFrame);

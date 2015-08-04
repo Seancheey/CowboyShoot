@@ -1,6 +1,7 @@
 package com.seancheey.data;
 
 import com.seancheey.gui.MainFrame;
+import com.seancheey.gui.Menu;
 
 /*Cowboy Alpha0.1
  * �޸ı���
@@ -21,6 +22,7 @@ public class Mainclass {
 
 	public static void main(String[] args) {
 		MainFrame frame = new MainFrame();
+		frame.add(new Menu(frame));
 		frame.repaint();
 	}
 }
