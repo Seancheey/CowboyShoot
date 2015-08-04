@@ -31,11 +31,9 @@ public class MainFrame extends JFrame {
 		repaint();
 	}
 
-	public void switchPanel(JPanel oldPanel, JPanel newPanel) {
-		newPanel.setEnabled(true);
+	public void switchPanel(JPanel newPanel) {
+		getContentPane().removeAll();
 		getContentPane().add(newPanel);
-		getContentPane().remove(oldPanel);
-		oldPanel.setEnabled(false);
 		keyhandler.switchPanel(newPanel);
 		getContentPane().repaint();
 	}

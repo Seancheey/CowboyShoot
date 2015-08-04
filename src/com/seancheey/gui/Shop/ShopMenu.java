@@ -25,7 +25,7 @@ public class ShopMenu extends StdPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == exitButton) {
-			mainFrame.switchPanel(new ShopPanel(mainFrame), new GamePanel(mainFrame));
+			switchTo(new GamePanel(mainFrame));
 			Game.map.resumeAll();
 		}
 	}

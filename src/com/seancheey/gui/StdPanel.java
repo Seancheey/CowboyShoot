@@ -24,6 +24,6 @@ public class StdPanel extends JPanel {
 		else if (newPanel == null)
 			throw new NullPointerException("newPanel is null");
 		else
-			mainFrame.switchPanel(this, newPanel);
+			mainFrame.switchPanel(newPanel);
 	}
 }

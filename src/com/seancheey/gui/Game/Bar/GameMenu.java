@@ -14,11 +14,9 @@ import com.seancheey.gui.GuiTool;
 import com.seancheey.gui.MainFrame;
 import com.seancheey.gui.Menu;
 import com.seancheey.gui.StdPanel;
-import com.seancheey.gui.Game.Game;
-import com.seancheey.gui.Game.GamePanel;
 import com.seancheey.gui.Shop.ShopPanel;
 
-public class GameMenu extends StdPanel implements ActionListener {
+public class GameMenu extends StdPanel {
 	private static final long serialVersionUID = 1L;
 
 	private static final int buttonNum = 2;
@@ -27,17 +25,6 @@ public class GameMenu extends StdPanel implements ActionListener {
 
 	public GameMenu(MainFrame mainFrame) {
 		super(mainFrame);
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == button[0]) {
-			Game.map.pauseAll();
-			mainFrame.switchPanel(new GamePanel(mainFrame), new ShopPanel(mainFrame));
-		} else if (e.getSource() == button[1]) {
-			Game.map.pauseAll();
-			mainFrame.switchPanel(new GamePanel(mainFrame), new Menu(mainFrame));
-		}
 	}
 
 	@Override
@@ -53,13 +40,24 @@ public class GameMenu extends StdPanel implements ActionListener {
 			buttonIcon[ba] = Toolkit.getDefaultToolkit().getImage("resource/Button/avoiderButton" + (ba + 6) + ".png");
 			button[ba].setSize(GuiTool.fitSize(180, 50));
 			button[ba].setLocation(GuiTool.fitWidth(ba * 180), 0);
-			button[ba].setBorderPainted(false);
+			// button[ba].setBorderPainted(false);
 			button[ba].setFocusable(false);
-			button[ba].addActionListener(this);
 			button[ba].setBackground(new Color(0, 0, 0, 0));
 			add(button[ba]);
-			repaint();
 		}
+		button[0].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mainFrame.switchPanel(new ShopPanel(mainFrame));
+			}
+		});
+		button[1].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mainFrame.switchPanel(new Menu(mainFrame));
+			}
+		});
+		repaint();
 	}
 
 	@Override
@@ -68,6 +66,5 @@ public class GameMenu extends StdPanel implements ActionListener {
 		for (int ba = 0; ba < buttonNum; ba++)
 			g.drawImage(buttonIcon[ba], GuiTool.fitWidth(ba * 180), 0, GuiTool.fitWidth(180), GuiTool.fitWidth(50),
 					this);
-		repaint();
 	}
 }
