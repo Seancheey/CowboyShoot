@@ -1,10 +1,10 @@
-package com.Seancheey.EntityAttributes;
+package com.seancheey.entityAttributes;
 
-import com.Seancheey.Creatures.Players.Player;
-import com.Seancheey.Creatures.Revivers.*;
-import com.Seancheey.Creatures.Balls.*;
-import com.Seancheey.Creatures.Bullets.Bullet;
-import com.Seancheey.GUI.Game.Game;
+import com.seancheey.creatures.Players.Player;
+import com.seancheey.creatures.Revivers.*;
+import com.seancheey.creatures.Balls.*;
+import com.seancheey.creatures.Bullets.Bullet;
+import com.seancheey.gui.Game.Game;
 
 public final class TypeGetter {
 
@@ -20,7 +20,7 @@ public final class TypeGetter {
 			return CreatureType.BALL;
 		case ("bullet"):
 			return CreatureType.BULLET;
-		case ("magicReviver"):
+		case ("MagicReviver"):
 		case ("healthReviver"):
 			return CreatureType.REVIVER;
 		case ("ballSpawner"):
@@ -29,7 +29,7 @@ public final class TypeGetter {
 			return CreatureType.WALL;
 		default:
 			System.out.println(
-					"com.Seancheey.EntityAttributes.EntityList---getType---" + ST + " is an unidentified object");
+					"com.seancheey.entityAttributes.EntityList---getType---" + ST + " is an unidentified object");
 			return CreatureType.NIL;
 		}
 	}

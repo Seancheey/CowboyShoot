@@ -1,8 +1,8 @@
-package com.Seancheey.Creatures.Revivers;
+package com.seancheey.creatures.Revivers;
 
-import com.Seancheey.EntityAttributes.TypeGetter;
-import com.Seancheey.EntityAttributes.CreatureType;
-import com.Seancheey.GUI.Game.Bar.StatusBar;
+import com.seancheey.entityAttributes.TypeGetter;
+import com.seancheey.entityAttributes.CreatureType;
+import com.seancheey.gui.Game.Bar.StatusBar;
 
 public class HPReviver extends Reviver {
 

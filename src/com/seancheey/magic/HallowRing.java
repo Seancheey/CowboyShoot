@@ -1,7 +1,7 @@
-package com.Seancheey.Magic;
+package com.seancheey.magic;
 
 import java.awt.event.KeyEvent;
-import com.Seancheey.EntityAttributes.TypeGetter;
+import com.seancheey.entityAttributes.TypeGetter;
 
 public class HallowRing extends Magic {
 

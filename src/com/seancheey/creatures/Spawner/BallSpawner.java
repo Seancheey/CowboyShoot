@@ -1,8 +1,8 @@
-package com.Seancheey.Creatures.Spawner;
+package com.seancheey.creatures.Spawner;
 
 import java.awt.Point;
-import com.Seancheey.Creatures.Balls.*;
-import com.Seancheey.GUI.Game.Game;
+import com.seancheey.creatures.Balls.*;
+import com.seancheey.gui.Game.Game;
 
 public class BallSpawner extends Spawner {
 

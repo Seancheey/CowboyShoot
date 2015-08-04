@@ -1,7 +1,7 @@
-package com.Seancheey.Data;
+package com.seancheey.data;
 
-import com.Seancheey.GUI.*;
-import com.Seancheey.Timing.TimeCounter;
+import com.seancheey.gui.*;
+import com.seancheey.timing.TimeCounter;
 
 /*Cowboy Alpha0.1
  * �޸ı���

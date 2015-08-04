@@ -1,8 +1,8 @@
-package com.Seancheey.levels;
+package com.seancheey.levels;
 
 import java.util.ArrayList;
-import com.Seancheey.Creatures.Creature;
-import com.Seancheey.EntityAttributes.CreatureType;
+import com.seancheey.creatures.Creature;
+import com.seancheey.entityAttributes.CreatureType;
 
 public interface CreatureCreator {
 	public void reset(int id, CreatureType type);

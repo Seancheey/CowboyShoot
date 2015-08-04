@@ -1,4 +1,4 @@
-package com.Seancheey.Creatures.Players;
+package com.seancheey.creatures.Players;
 
 public class PlayerStatus {
 	@SuppressWarnings("unused")

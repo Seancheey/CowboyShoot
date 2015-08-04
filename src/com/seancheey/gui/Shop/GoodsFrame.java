@@ -1,8 +1,8 @@
-package com.Seancheey.GUI.Shop;
+package com.seancheey.gui.Shop;
 
 import javax.swing.*;
 
-import com.Seancheey.GUI.GuiTool;
+import com.seancheey.gui.GuiTool;
 
 import java.awt.*;
 import java.awt.event.*;

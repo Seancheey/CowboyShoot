@@ -1,8 +1,8 @@
-package com.Seancheey.GUI;
+package com.seancheey.gui;
 
 import javax.swing.*;
 
-import com.Seancheey.Data.RankModifier;
+import com.seancheey.data.RankModifier;
 
 import java.awt.*;
 import java.awt.event.*;

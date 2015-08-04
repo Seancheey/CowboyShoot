@@ -1,4 +1,4 @@
-package com.Seancheey.levels;
+package com.seancheey.levels;
 
 public class CurrentLevel extends LevelData {
 	// loaded level

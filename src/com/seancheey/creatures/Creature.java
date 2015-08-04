@@ -1,8 +1,8 @@
-package com.Seancheey.Creatures;
+package com.seancheey.creatures;
 
-import com.Seancheey.EntityAttributes.Entity;
-import com.Seancheey.GUI.Game.Game;
-import com.Seancheey.Timing.*;
+import com.seancheey.entityAttributes.Entity;
+import com.seancheey.gui.Game.Game;
+import com.seancheey.timing.*;
 
 public abstract class Creature extends Entity {
 	private Timer normalTimer;

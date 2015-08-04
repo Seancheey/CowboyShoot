@@ -1,11 +1,11 @@
-package com.Seancheey.GUI.Game;
+package com.seancheey.gui.Game;
 
 import javax.swing.*;
 
 import java.awt.*;
-import com.Seancheey.GUI.GuiTool;
-import com.Seancheey.GUI.MainFrame;
-import com.Seancheey.levels.CurrentLevel;
+import com.seancheey.gui.GuiTool;
+import com.seancheey.gui.MainFrame;
+import com.seancheey.levels.CurrentLevel;
 
 public class Game extends JPanel {
 	private static final long serialVersionUID = 1L;

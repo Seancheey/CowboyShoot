@@ -1,4 +1,4 @@
-package com.Seancheey.Data.KeyHandling;
+package com.seancheey.data.KeyHandling;
 
 public interface KeyReaction {
 	public void press();

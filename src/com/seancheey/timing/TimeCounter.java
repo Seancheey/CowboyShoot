@@ -1,4 +1,4 @@
-package com.Seancheey.Timing;
+package com.seancheey.timing;
 
 public class TimeCounter {
 	private int time = 0;

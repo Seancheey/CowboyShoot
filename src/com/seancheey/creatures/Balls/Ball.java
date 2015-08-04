@@ -1,12 +1,12 @@
-package com.Seancheey.Creatures.Balls;
+package com.seancheey.creatures.Balls;
 
 import java.util.Random;
 
-import com.Seancheey.Creatures.Creature;
-import com.Seancheey.EntityAttributes.TypeGetter;
-import com.Seancheey.EntityAttributes.CreatureType;
-import com.Seancheey.GUI.Game.Game;
-import com.Seancheey.GUI.Game.GameBar;
+import com.seancheey.creatures.Creature;
+import com.seancheey.entityAttributes.TypeGetter;
+import com.seancheey.entityAttributes.CreatureType;
+import com.seancheey.gui.Game.Game;
+import com.seancheey.gui.Game.GameBar;
 
 public abstract class Ball extends Creature {
 	protected static Random r = new Random();

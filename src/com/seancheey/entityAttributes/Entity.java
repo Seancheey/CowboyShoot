@@ -1,13 +1,13 @@
-package com.Seancheey.EntityAttributes;
+package com.seancheey.entityAttributes;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
-import com.Seancheey.GUI.GuiTool;
-import com.Seancheey.GUI.Game.GamePanel;
-import com.Seancheey.Timing.*;
+import com.seancheey.gui.GuiTool;
+import com.seancheey.gui.Game.GamePanel;
+import com.seancheey.timing.*;
 
 public abstract class Entity implements RefreshAction {
 	public Timer timer;
@@ -109,7 +109,7 @@ public abstract class Entity implements RefreshAction {
 	protected void setImage(String imagePath) {
 		image = Toolkit.getDefaultToolkit().getImage(imagePath);
 		if (image.toString() == null)
-			System.out.println("com.Seancheey.MOB---setImage---image is not found");
+			System.out.println("com.seancheey.MOB---setImage---image is not found");
 	}
 
 	public void setPosition(int px, int py) {

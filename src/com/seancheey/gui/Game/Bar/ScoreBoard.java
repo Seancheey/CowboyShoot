@@ -1,10 +1,10 @@
-package com.Seancheey.GUI.Game.Bar;
+package com.seancheey.gui.Game.Bar;
 
 import java.awt.*;
 
 import javax.swing.*;
 
-import com.Seancheey.GUI.GuiTool;
+import com.seancheey.gui.GuiTool;
 
 public class ScoreBoard extends JPanel {
 	private static final long serialVersionUID = 1L;

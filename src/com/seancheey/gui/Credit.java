@@ -1,4 +1,4 @@
-package com.Seancheey.GUI;
+package com.seancheey.gui;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.Seancheey.Data.Mainclass;
+import com.seancheey.data.Mainclass;
 
 public class Credit extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;

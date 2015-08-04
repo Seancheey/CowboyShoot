@@ -1,6 +1,6 @@
-package com.Seancheey.Creatures.Balls;
+package com.seancheey.creatures.Balls;
 
-import com.Seancheey.EntityAttributes.TypeGetter;
+import com.seancheey.entityAttributes.TypeGetter;
 
 public class FastBall extends Ball {
 	public double v = 50;

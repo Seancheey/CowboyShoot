@@ -1,10 +1,10 @@
-package com.Seancheey.mapAnalyser;
+package com.seancheey.mapAnalyser;
 
 import java.awt.Dimension;
 import java.awt.Image;
 import java.util.ArrayList;
 
-import com.Seancheey.EntityAttributes.Entity;
+import com.seancheey.entityAttributes.Entity;
 
 public class Analyser implements MapData {
 	private static ArrayList<Entity> entities = new ArrayList<Entity>();

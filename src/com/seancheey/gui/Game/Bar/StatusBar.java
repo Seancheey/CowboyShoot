@@ -1,9 +1,9 @@
-package com.Seancheey.GUI.Game.Bar;
+package com.seancheey.gui.Game.Bar;
 
 import javax.swing.*;
 
-import com.Seancheey.EntityAttributes.TypeGetter;
-import com.Seancheey.GUI.GuiTool;
+import com.seancheey.entityAttributes.TypeGetter;
+import com.seancheey.gui.GuiTool;
 
 import java.awt.*;
 
@@ -49,8 +49,8 @@ public class StatusBar extends JPanel {
 		HPLength = (int) ((double) currentHealth / (double) maxHealth * 275);
 	}
 
-	public static void setMagic(int magic) {
-		currentMagic = magic;
+	public static void setMagic(int Magic) {
+		currentMagic = Magic;
 		MPLength = (int) ((double) currentMagic / (double) maxMagic * 275);
 	}
 

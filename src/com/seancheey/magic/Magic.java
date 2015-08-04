@@ -1,12 +1,12 @@
-package com.Seancheey.Magic;
+package com.seancheey.magic;
 
 import java.awt.*;
 
-import com.Seancheey.EntityAttributes.CreatureType;
-import com.Seancheey.EntityAttributes.TypeGetter;
-import com.Seancheey.GUI.Game.Game;
-import com.Seancheey.GUI.Game.GamePanel;
-import com.Seancheey.GUI.Game.Bar.StatusBar;
+import com.seancheey.entityAttributes.CreatureType;
+import com.seancheey.entityAttributes.TypeGetter;
+import com.seancheey.gui.Game.Game;
+import com.seancheey.gui.Game.GamePanel;
+import com.seancheey.gui.Game.Bar.StatusBar;
 
 public abstract class Magic {
 	public int hotKeyCode, MPUse, CD = 3000;

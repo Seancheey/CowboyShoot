@@ -1,9 +1,9 @@
-package com.Seancheey.GUI.Game.Bar;
+package com.seancheey.gui.Game.Bar;
 
 import javax.swing.*;
-import com.Seancheey.GUI.GuiTool;
-import com.Seancheey.GUI.MainPanel;
-import com.Seancheey.GUI.Game.Game;
+import com.seancheey.gui.GuiTool;
+import com.seancheey.gui.MainPanel;
+import com.seancheey.gui.Game.Game;
 
 import java.awt.*;
 import java.awt.event.*;

@@ -1,9 +1,9 @@
-package com.Seancheey.GUI.Game;
+package com.seancheey.gui.Game;
 
 import java.awt.*;
 
-import com.Seancheey.EntityAttributes.TypeGetter;
-import com.Seancheey.GUI.GuiTool;
+import com.seancheey.entityAttributes.TypeGetter;
+import com.seancheey.gui.GuiTool;
 
 public class Animation {
 	private static Image image;

@@ -1,9 +1,9 @@
-package com.Seancheey.Creatures.Revivers;
+package com.seancheey.creatures.Revivers;
 
 import java.util.Random;
-import com.Seancheey.Creatures.Creature;
-import com.Seancheey.EntityAttributes.CreatureType;
-import com.Seancheey.EntityAttributes.TypeGetter;
+import com.seancheey.creatures.Creature;
+import com.seancheey.entityAttributes.CreatureType;
+import com.seancheey.entityAttributes.TypeGetter;
 
 public abstract class Reviver extends Creature {
 	private Random r = new Random();

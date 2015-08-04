@@ -1,10 +1,10 @@
-package com.Seancheey.Data;
+package com.seancheey.data;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-import com.Seancheey.GUI.MainPanel;
+import com.seancheey.gui.MainPanel;
 
 public class RankModifier {
 	private RandomAccessFile r;

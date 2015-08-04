@@ -1,10 +1,10 @@
-package com.Seancheey.GUI.Game.Bar;
+package com.seancheey.gui.Game.Bar;
 
 import javax.swing.*;
 
-import com.Seancheey.EntityAttributes.TypeGetter;
-import com.Seancheey.GUI.GuiTool;
-import com.Seancheey.Magic.Magic;
+import com.seancheey.entityAttributes.TypeGetter;
+import com.seancheey.gui.GuiTool;
+import com.seancheey.magic.Magic;
 
 import java.awt.event.*;
 import java.awt.*;
@@ -12,7 +12,7 @@ import java.awt.*;
 public class MagicUsingBar extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
-	private static Image[] magicImage = new Image[3];
+	private static Image[] MagicImage = new Image[3];
 	private static JButton[] button = new JButton[3];
 	public static boolean[] canUse = new boolean[3];
 	public static char[] hotKey = new char[3];
@@ -26,7 +26,7 @@ public class MagicUsingBar extends JPanel implements ActionListener {
 		hotKey[0] = 'z';
 		hotKey[1] = 'x';
 		hotKey[2] = 'c';
-		// initialize magicImage
+		// initialize MagicImage
 		for (int ba = 0; ba < 3; ba++) {
 			button[ba] = new JButton();
 			button[ba].setSize(GuiTool.fitSize(50, 50));
@@ -36,7 +36,7 @@ public class MagicUsingBar extends JPanel implements ActionListener {
 			button[ba].addActionListener(this);
 			button[ba].setBorderPainted(false);
 			add(button[ba]);
-			magicImage[ba] = Toolkit.getDefaultToolkit().getImage("resource/Magic/avoiderMagic" + (ba + 1) + ".png");
+			MagicImage[ba] = Toolkit.getDefaultToolkit().getImage("resource/Magic/avoiderMagic" + (ba + 1) + ".png");
 		}
 	}
 
@@ -45,7 +45,7 @@ public class MagicUsingBar extends JPanel implements ActionListener {
 		readCanUse();
 		g.drawImage(background, 0, 0, GuiTool.fitWidth(150), GuiTool.fitHeight(50), this);
 		for (int ba = 0; ba < 3; ba++) {
-			g.drawImage(magicImage[ba], GuiTool.fitWidth(ba * 50), 0, GuiTool.fitWidth(50), GuiTool.fitHeight(50),
+			g.drawImage(MagicImage[ba], GuiTool.fitWidth(ba * 50), 0, GuiTool.fitWidth(50), GuiTool.fitHeight(50),
 					this);
 			if (!canUse[ba]) {
 				g.setColor(new Color(0, 0, 0, 100));

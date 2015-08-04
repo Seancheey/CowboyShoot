@@ -1,10 +1,10 @@
-package com.Seancheey.Data.KeyHandling;
+package com.seancheey.data.KeyHandling;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
-import com.Seancheey.EntityAttributes.TypeGetter;
-import com.Seancheey.Magic.*;
+import com.seancheey.entityAttributes.TypeGetter;
+import com.seancheey.magic.*;
 
 public class GameKeyHandler implements KeyListener {
 	private ArrayList<ReactableKey> keys;

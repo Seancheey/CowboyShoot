@@ -1,9 +1,9 @@
-package com.Seancheey.Creatures.Balls;
+package com.seancheey.creatures.Balls;
 
-import com.Seancheey.EntityAttributes.TypeGetter;
-import com.Seancheey.EntityAttributes.CreatureType;
-import com.Seancheey.GUI.Game.Game;
-import com.Seancheey.GUI.Game.GameBar;
+import com.seancheey.entityAttributes.TypeGetter;
+import com.seancheey.entityAttributes.CreatureType;
+import com.seancheey.gui.Game.Game;
+import com.seancheey.gui.Game.GameBar;
 
 import java.lang.Math;
 

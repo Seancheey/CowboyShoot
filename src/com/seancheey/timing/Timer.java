@@ -1,4 +1,4 @@
-package com.Seancheey.Timing;
+package com.seancheey.timing;
 
 public class Timer {
 	private int delay = 20;

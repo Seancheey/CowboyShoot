@@ -1,10 +1,10 @@
-package com.Seancheey.Data.KeyHandling;
+package com.seancheey.data.KeyHandling;
 
 import javax.swing.*;
 
 import java.awt.event.*;
 
-import com.Seancheey.GUI.MainPanel;
+import com.seancheey.gui.MainPanel;
 
 public class KeyHandler implements KeyListener {
 	private JPanel panel;

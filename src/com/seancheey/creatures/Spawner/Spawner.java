@@ -1,13 +1,13 @@
-package com.Seancheey.Creatures.Spawner;
+package com.seancheey.creatures.Spawner;
 
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.Random;
 
-import com.Seancheey.Creatures.Creature;
-import com.Seancheey.EntityAttributes.CreatureType;
-import com.Seancheey.EntityAttributes.TypeGetter;
-import com.Seancheey.GUI.Game.Game;
+import com.seancheey.creatures.Creature;
+import com.seancheey.entityAttributes.CreatureType;
+import com.seancheey.entityAttributes.TypeGetter;
+import com.seancheey.gui.Game.Game;
 
 public abstract class Spawner extends Creature {
 	protected final Random r = new Random();

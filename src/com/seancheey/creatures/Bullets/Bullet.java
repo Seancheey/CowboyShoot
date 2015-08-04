@@ -1,12 +1,12 @@
-package com.Seancheey.Creatures.Bullets;
+package com.seancheey.creatures.Bullets;
 
 import java.awt.*;
 
-import com.Seancheey.Creatures.Creature;
-import com.Seancheey.EntityAttributes.CreatureType;
-import com.Seancheey.EntityAttributes.TypeGetter;
-import com.Seancheey.GUI.*;
-import com.Seancheey.GUI.Game.Game;
+import com.seancheey.creatures.Creature;
+import com.seancheey.entityAttributes.CreatureType;
+import com.seancheey.entityAttributes.TypeGetter;
+import com.seancheey.gui.*;
+import com.seancheey.gui.Game.Game;
 
 public class Bullet extends Creature {
 

@@ -1,4 +1,4 @@
-package com.Seancheey.Creatures.Balls;
+package com.seancheey.creatures.Balls;
 
 public class NormalBall extends Ball {
 

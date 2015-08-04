@@ -1,8 +1,8 @@
-package com.Seancheey.GUI;
+package com.seancheey.gui;
 
 import javax.swing.JPanel;
-import com.Seancheey.GUI.Game.GamePanel;
-import com.Seancheey.GUI.Shop.ShopPanel;
+import com.seancheey.gui.Game.GamePanel;
+import com.seancheey.gui.Shop.ShopPanel;
 
 public class MainPanel extends JPanel {
 	private static final long serialVersionUID = 1L;

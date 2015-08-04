@@ -1,7 +1,7 @@
-package com.Seancheey.Creatures.Walls;
+package com.seancheey.creatures.Walls;
 
-import com.Seancheey.Creatures.Creature;
-import com.Seancheey.GUI.Game.Game;
+import com.seancheey.creatures.Creature;
+import com.seancheey.gui.Game.Game;
 
 public class Wall extends Creature {
 

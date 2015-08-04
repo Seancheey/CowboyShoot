@@ -1,4 +1,4 @@
-package com.Seancheey.GUI;
+package com.seancheey.gui;
 
 import java.awt.*;
 import java.awt.event.*;

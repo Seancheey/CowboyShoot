@@ -1,4 +1,4 @@
-package com.Seancheey.levels;
+package com.seancheey.levels;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -6,13 +6,13 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.Seancheey.Creatures.Creature;
-import com.Seancheey.Creatures.Balls.*;
-import com.Seancheey.EntityAttributes.CreatureType;
-import com.Seancheey.EntityAttributes.Entity;
-import com.Seancheey.GUI.GuiTool;
-import com.Seancheey.GUI.Game.GamePanel;
-import com.Seancheey.mapAnalyser.MapData;
+import com.seancheey.creatures.Creature;
+import com.seancheey.creatures.Balls.*;
+import com.seancheey.entityAttributes.CreatureType;
+import com.seancheey.entityAttributes.Entity;
+import com.seancheey.gui.GuiTool;
+import com.seancheey.gui.Game.GamePanel;
+import com.seancheey.mapAnalyser.MapData;
 
 public abstract class LevelData implements MapData, CreatureCreator {
 	protected ArrayList<Entity> entities = new ArrayList<Entity>(10);
@@ -54,7 +54,7 @@ public abstract class LevelData implements MapData, CreatureCreator {
 		if (id == -1)
 			id = newID;
 		else
-			System.out.println("com.Seancheey.levels.LevelData---setID---Map ID cannot be changed twice");
+			System.out.println("com.seancheey.levels.Leveldata---setID---Map ID cannot be changed twice");
 	}
 
 	public void startRefreshAll() {
@@ -93,7 +93,7 @@ public abstract class LevelData implements MapData, CreatureCreator {
 		return entities;
 	}
 
-	public void clearCreatures() {
+	public void clearcreatures() {
 		for (int i = 0; i < creatures.size(); i++) {
 			creatures.get(i).kill();
 		}
@@ -153,7 +153,7 @@ public abstract class LevelData implements MapData, CreatureCreator {
 					creatures.set(id, new Charger());
 					break;
 				default:
-					System.out.println("com.Seancheey.levels.LevelData---reset---Unidentified BALL");
+					System.out.println("com.seancheey.levels.Leveldata---reset---Unidentified BALL");
 				}
 			}
 			// give ID and Start refreshing

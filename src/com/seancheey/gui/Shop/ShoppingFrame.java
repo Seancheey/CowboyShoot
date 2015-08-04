@@ -1,8 +1,8 @@
-package com.Seancheey.GUI.Shop;
+package com.seancheey.gui.Shop;
 
 import java.awt.*;
 import javax.swing.*;
-import com.Seancheey.GUI.GuiTool;
+import com.seancheey.gui.GuiTool;
 
 public class ShoppingFrame extends JPanel {
 	private static final long serialVersionUID = 1L;

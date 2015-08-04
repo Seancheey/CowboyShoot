@@ -1,9 +1,9 @@
-package com.Seancheey.Magic;
+package com.seancheey.magic;
 
 import java.awt.event.KeyEvent;
 
-import com.Seancheey.EntityAttributes.TypeGetter;
-import com.Seancheey.GUI.Game.Bar.StatusBar;
+import com.seancheey.entityAttributes.TypeGetter;
+import com.seancheey.gui.Game.Bar.StatusBar;
 
 public class Heal extends Magic {
 

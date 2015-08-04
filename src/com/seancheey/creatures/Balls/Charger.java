@@ -1,6 +1,6 @@
-package com.Seancheey.Creatures.Balls;
+package com.seancheey.creatures.Balls;
 
-import com.Seancheey.EntityAttributes.TypeGetter;
+import com.seancheey.entityAttributes.TypeGetter;
 
 public class Charger extends Ball {
 	private double v = 0, chargeTime = 2000, notifiedTime = 1000;

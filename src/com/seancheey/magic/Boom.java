@@ -1,11 +1,11 @@
-package com.Seancheey.Magic;
+package com.seancheey.magic;
 
 import java.awt.event.KeyEvent;
 
-import com.Seancheey.EntityAttributes.TypeGetter;
-import com.Seancheey.EntityAttributes.CreatureType;
-import com.Seancheey.GUI.Game.Game;
-import com.Seancheey.GUI.Game.GameBar;
+import com.seancheey.entityAttributes.TypeGetter;
+import com.seancheey.entityAttributes.CreatureType;
+import com.seancheey.gui.Game.Game;
+import com.seancheey.gui.Game.GameBar;
 
 public class Boom extends Magic {
 

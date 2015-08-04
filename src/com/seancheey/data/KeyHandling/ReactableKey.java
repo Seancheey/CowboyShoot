@@ -1,4 +1,4 @@
-package com.Seancheey.Data.KeyHandling;
+package com.seancheey.data.KeyHandling;
 
 public abstract class ReactableKey implements KeyReaction {
 	private int keyCode;

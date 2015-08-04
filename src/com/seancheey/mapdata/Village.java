@@ -1,11 +1,11 @@
-package com.Seancheey.mapdata;
+package com.seancheey.mapdata;
 
 import java.awt.Dimension;
 import java.awt.Image;
 import java.util.ArrayList;
 
-import com.Seancheey.EntityAttributes.Entity;
-import com.Seancheey.mapAnalyser.MapData;
+import com.seancheey.entityAttributes.Entity;
+import com.seancheey.mapAnalyser.MapData;
 
 public class Village implements MapData {
 

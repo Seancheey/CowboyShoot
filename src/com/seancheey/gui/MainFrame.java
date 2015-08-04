@@ -1,11 +1,11 @@
-package com.Seancheey.GUI;
+package com.seancheey.gui;
 
 import javax.swing.*;
 
 import java.awt.*;
 
-import com.Seancheey.Data.Mainclass;
-import com.Seancheey.Data.KeyHandling.KeyHandler;
+import com.seancheey.data.Mainclass;
+import com.seancheey.data.KeyHandling.KeyHandler;
 
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;

@@ -1,12 +1,12 @@
-package com.Seancheey.GUI.Shop;
+package com.seancheey.gui.Shop;
 
 import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
-import com.Seancheey.GUI.GuiTool;
-import com.Seancheey.GUI.MainPanel;
-import com.Seancheey.GUI.Game.Game;
+import com.seancheey.gui.GuiTool;
+import com.seancheey.gui.MainPanel;
+import com.seancheey.gui.Game.Game;
 
 public class ShopMenu extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;

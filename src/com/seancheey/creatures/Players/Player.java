@@ -1,24 +1,24 @@
-package com.Seancheey.Creatures.Players;
+package com.seancheey.creatures.Players;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-import com.Seancheey.Creatures.Creature;
-import com.Seancheey.Creatures.Bullets.Bullet;
-import com.Seancheey.Data.Mainclass;
-import com.Seancheey.EntityAttributes.CreatureType;
-import com.Seancheey.EntityAttributes.TypeGetter;
-import com.Seancheey.GUI.GuiTool;
-import com.Seancheey.GUI.MainPanel;
-import com.Seancheey.GUI.Game.Game;
-import com.Seancheey.GUI.Game.GamePanel;
-import com.Seancheey.GUI.Game.Bar.ScoreBoard;
-import com.Seancheey.GUI.Game.Bar.StatusBar;
-import com.Seancheey.Magic.Magic;
+import com.seancheey.creatures.Creature;
+import com.seancheey.creatures.Bullets.Bullet;
+import com.seancheey.data.Mainclass;
+import com.seancheey.entityAttributes.CreatureType;
+import com.seancheey.entityAttributes.TypeGetter;
+import com.seancheey.gui.GuiTool;
+import com.seancheey.gui.MainPanel;
+import com.seancheey.gui.Game.Game;
+import com.seancheey.gui.Game.GamePanel;
+import com.seancheey.gui.Game.Bar.ScoreBoard;
+import com.seancheey.gui.Game.Bar.StatusBar;
+import com.seancheey.magic.Magic;
 
 public class Player extends Creature {
 	private static final int maxSpeed = 300;
-	// magic point and maximum magic point of player
+	// Magic point and maximum Magic point of player
 	public int MP = 100, maxMP = 100;
 	// image of the gun
 	private static Image gunImage = Toolkit.getDefaultToolkit().getImage("resource/Player/gun1.png");
@@ -91,8 +91,8 @@ public class Player extends Creature {
 		}
 	}
 
-	public void conjure(Magic magic) {
-		magic.conjure();
+	public void conjure(Magic Magic) {
+		Magic.conjure();
 	}
 
 	public void makeMove() {

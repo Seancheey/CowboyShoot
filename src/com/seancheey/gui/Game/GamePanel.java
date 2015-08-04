@@ -1,8 +1,8 @@
-package com.Seancheey.GUI.Game;
+package com.seancheey.gui.Game;
 
 import javax.swing.*;
-import com.Seancheey.GUI.GuiTool;
-import com.Seancheey.GUI.Game.Bar.StatusBar;
+import com.seancheey.gui.GuiTool;
+import com.seancheey.gui.Game.Bar.StatusBar;
 
 public class GamePanel extends JPanel {
 	private static final long serialVersionUID = 1L;

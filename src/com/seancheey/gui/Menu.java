@@ -1,7 +1,7 @@
-package com.Seancheey.GUI;
+package com.seancheey.gui;
 
 import javax.swing.*;
-import com.Seancheey.Data.Mainclass;
+import com.seancheey.data.Mainclass;
 import java.awt.*;
 import java.awt.event.*;
 
