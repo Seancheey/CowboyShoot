@@ -25,6 +25,7 @@ public class Game extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private static Image background = Toolkit.getDefaultToolkit().getImage("resource/Background/meadow.jpg");
 	public static CurrentLevel map;
+	private static final int updateInterval = 10;
 	private GameKeyHandler gameKeyHandler;
 	/**
 	 * the milliseconds of the last time of refresh (used to get the time
@@ -35,6 +36,7 @@ public class Game extends JPanel {
 	 * used to calculate how much time was not reduced at last run
 	 */
 	private int timeMore = 0;
+	private Thread creatureMoveThread;
 
 	public Game(GameKeyHandler gameKeyHandler) {
 		setSize(GuiTool.fitSize(900, 550));
@@ -43,6 +45,37 @@ public class Game extends JPanel {
 		lastRefreshTime = new Date().getTime();
 		this.gameKeyHandler = gameKeyHandler;
 		map = new CurrentLevel(this.gameKeyHandler);
+		creatureMoveThread = new Thread() {
+			@Override
+			public void run() {
+				while (true) {
+					makeMove();
+				}
+			}
+		};
+		creatureMoveThread.start();
+	}
+
+	@Override
+	protected void finalize() throws Throwable {
+		super.finalize();
+		creatureMoveThread.wait();
+	}
+
+	/**
+	 * let the creatures' movement synchronized with the time according to the
+	 * updateInterval (when the time needed to finish all the movement is longer
+	 * that the updateInterval, the movement will be greatly slowed)
+	 */
+	private void makeMove() {
+		timeMore += new Date().getTime() - lastRefreshTime;
+		for (int i = 0; i < timeMore / updateInterval; i++) {
+			for (Creature c : map.getCreatureList()) {
+				c.makeMove();
+			}
+		}
+		timeMore = timeMore % updateInterval;
+		lastRefreshTime = new Date().getTime();
 	}
 
 	private void paintAllStuff(Graphics g) {
@@ -56,14 +89,6 @@ public class Game extends JPanel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		paintAllStuff(g);
-		timeMore += new Date().getTime() - lastRefreshTime;
-		for (int i = 0; i < timeMore / 20; i++) {
-			for (Creature c : map.getCreatureList()) {
-				c.makeMove();
-			}
-		}
-		timeMore = timeMore % 20;
-		lastRefreshTime = new Date().getTime();
 		repaint();
 	}
 }

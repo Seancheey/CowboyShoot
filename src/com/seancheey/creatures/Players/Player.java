@@ -20,7 +20,7 @@ import com.seancheey.gui.Game.Bar.StatusBar;
 import com.seancheey.magic.Magic;
 
 public class Player extends Creature {
-	private static final int maxSpeed = 30;
+	private static final int maxSpeed = 10;
 	// image of the gun
 	private static Image gunImage = Toolkit.getDefaultToolkit().getImage("resource/Player/gun1.png");
 	// Magic point and maximum Magic point of player
