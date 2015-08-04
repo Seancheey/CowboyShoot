@@ -20,11 +20,9 @@ import com.seancheey.timing.TimeCounter;
 public class Mainclass {
 	public static String version = "Alpha0.1";
 	public static MainFrame frame;
-	public static RankModifier rankModifier;
 	public static TimeCounter timeCounter;
 
 	public static void main(String[] args) {
-		rankModifier = new RankModifier();
 		timeCounter = new TimeCounter();
 		frame = new MainFrame();
 		frame.repaint();

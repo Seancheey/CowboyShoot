@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 
 import com.seancheey.creatures.Creature;
 import com.seancheey.creatures.Bullets.Bullet;
-import com.seancheey.data.Mainclass;
+import com.seancheey.data.RankModifier;
 import com.seancheey.entityAttributes.CreatureType;
 import com.seancheey.entityAttributes.TypeGetter;
 import com.seancheey.gui.GuiTool;
@@ -66,8 +66,7 @@ public class Player extends Creature {
 
 	public void deathOperation() {
 		timer.kill();
-
-		Mainclass.rankModifier.addNewRank("Sean", ScoreBoard.getScore());
+		new RankModifier().addNewRank("Sean", ScoreBoard.getScore());
 		GuiTool.switchPanel(MainPanel.gamePanel, MainPanel.menu);
 	}
 
