@@ -1,7 +1,9 @@
 package com.seancheey.gui.Shop;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Color;
+
+import javax.swing.JPanel;
+
 import com.seancheey.gui.GuiTool;
 
 public class ShoppingFrame extends JPanel {

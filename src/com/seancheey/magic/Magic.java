@@ -1,6 +1,7 @@
 package com.seancheey.magic;
 
-import java.awt.*;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 import com.seancheey.entityAttributes.CreatureType;
 import com.seancheey.entityAttributes.TypeGetter;
@@ -9,13 +10,27 @@ import com.seancheey.gui.Game.GamePanel;
 import com.seancheey.gui.Game.Bar.StatusBar;
 
 public abstract class Magic {
-	public int hotKeyCode, MPUse, CD = 3000;
-	public boolean canUse = true;
-	private Image image;
-	private Thread cDHandler = new CDHandler();
+	private class CDHandler extends Thread {
+		@Override
+		public void run() {
+			canUse = false;
+			try {
+				sleep(CD);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			canUse = true;
+		}
+	}
+
 	public static Boom boom = new Boom();
 	public static HallowRing hallowRing = new HallowRing();
 	public static Heal heal = new Heal();
+	public int hotKeyCode, MPUse, CD = 3000;
+	public boolean canUse = true;
+	private Image image;
+
+	private Thread cDHandler = new CDHandler();
 
 	public Magic(String imagePath, int hotKey, int MPuse, int CT) {
 		image = Toolkit.getDefaultToolkit().getImage(imagePath);
@@ -46,18 +61,6 @@ public abstract class Magic {
 			}
 		} else {
 			// System.out.println("Cooldown Time hasn't fnished yet");
-		}
-	}
-
-	private class CDHandler extends Thread {
-		public void run() {
-			canUse = false;
-			try {
-				sleep(CD);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			canUse = true;
 		}
 	}
 

@@ -1,6 +1,6 @@
 package com.seancheey.creatures.Bullets;
 
-import java.awt.*;
+import java.awt.Point;
 
 import com.seancheey.creatures.Creature;
 import com.seancheey.entityAttributes.CreatureType;
@@ -30,13 +30,15 @@ public class Bullet extends Creature {
 		refreshRotation();
 	}
 
-	public void deathOperation() {
-		kill();
-	}
-
+	@Override
 	public void collisionOperation(int id) {
 		if (TypeGetter.getType(id) == CreatureType.BALL) {
 			Game.map.getCreatureList().get(id).collisionOperation(getID());
 		}
+	}
+
+	@Override
+	public void deathOperation() {
+		kill();
 	}
 }

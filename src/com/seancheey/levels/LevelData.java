@@ -7,7 +7,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import com.seancheey.creatures.Creature;
-import com.seancheey.creatures.Balls.*;
+import com.seancheey.creatures.Balls.Boss;
+import com.seancheey.creatures.Balls.Charger;
+import com.seancheey.creatures.Balls.FastBall;
+import com.seancheey.creatures.Balls.NormalBall;
+import com.seancheey.data.KeyHandling.GameKeyHandler;
 import com.seancheey.entityAttributes.CreatureType;
 import com.seancheey.entityAttributes.Entity;
 import com.seancheey.gui.GuiTool;
@@ -23,9 +27,12 @@ public abstract class LevelData implements MapData, CreatureCreator {
 	protected Random r = new Random();
 	private int id = -1;
 	private Thread tester;
+	protected GameKeyHandler gameKeyHandler;
 
-	public LevelData() {
+	public LevelData(GameKeyHandler gameKeyHandler) {
+		this.gameKeyHandler = gameKeyHandler;
 		tester = new Thread() {
+			@Override
 			@SuppressWarnings("deprecation")
 			public void run() {
 				for (;;) {
@@ -46,15 +53,49 @@ public abstract class LevelData implements MapData, CreatureCreator {
 		tester.start();
 	}
 
+	@Override
+	public void addNew(Creature newCreature) {
+		creatures.add(newCreature);
+		newCreature.setID(creatures.indexOf(newCreature));
+	}
+
+	public void clearcreatures() {
+		for (int i = 0; i < creatures.size(); i++) {
+			creatures.get(i).kill();
+		}
+		creatures.clear();
+		creatures = new ArrayList<Creature>(300);
+	}
+
+	protected abstract void failOperation();
+
+	@Override
+	public Image getBackground() {
+		return backgroundImage;
+	}
+
+	@Override
+	public ArrayList<Creature> getCreatureList() {
+		return creatures;
+	}
+
+	@Override
+	public ArrayList<Entity> getEntities() {
+		return entities;
+	}
+
 	public int getID() {
 		return id;
 	}
 
-	public void setID(int newID) {
-		if (id == -1)
-			id = newID;
-		else
-			System.out.println("com.seancheey.levels.Leveldata---setID---Map ID cannot be changed twice");
+	@Override
+	public String getName() {
+		return mapName;
+	}
+
+	@Override
+	public Dimension getSize() {
+		return mapSize;
 	}
 
 	@SuppressWarnings("deprecation")
@@ -71,41 +112,16 @@ public abstract class LevelData implements MapData, CreatureCreator {
 		tester = null;
 	}
 
-	public Dimension getSize() {
-		return mapSize;
-	}
+	public void paintMap(Graphics g) {
+		g.drawImage(backgroundImage, 0, 0, GuiTool.fitWidth(900), GuiTool.fitHeight(600), GamePanel.game);
 
-	public String getName() {
-		return mapName;
-	}
-
-	public Image getBackground() {
-		return backgroundImage;
-	}
-
-	public ArrayList<Entity> getEntities() {
-		return entities;
-	}
-
-	public void clearcreatures() {
-		for (int i = 0; i < creatures.size(); i++) {
-			creatures.get(i).kill();
+		for (int ba = 0; ba < entities.size(); ba++) {
+			entities.get(ba).paint(g);
 		}
-		creatures.clear();
-		creatures = new ArrayList<Creature>(300);
+		for (int ba = 0; ba < creatures.size(); ba++) {
+			creatures.get(ba).paint(g);
+		}
 	}
-
-	public ArrayList<Creature> getCreatureList() {
-		return creatures;
-	}
-
-	protected abstract void failOperation();
-
-	protected abstract void winOperation();
-
-	protected abstract boolean testWin();
-
-	protected abstract boolean testFail();
 
 	@Override
 	public void reset(int id, CreatureType type) {
@@ -155,20 +171,16 @@ public abstract class LevelData implements MapData, CreatureCreator {
 		}
 	}
 
-	@Override
-	public void addNew(Creature newCreature) {
-		creatures.add(newCreature);
-		newCreature.setID(creatures.indexOf(newCreature));
+	public void setID(int newID) {
+		if (id == -1)
+			id = newID;
+		else
+			System.out.println("com.seancheey.levels.Leveldata---setID---Map ID cannot be changed twice");
 	}
 
-	public void paintMap(Graphics g) {
-		g.drawImage(backgroundImage, 0, 0, GuiTool.fitWidth(900), GuiTool.fitHeight(600), GamePanel.game);
+	protected abstract boolean testFail();
 
-		for (int ba = 0; ba < entities.size(); ba++) {
-			entities.get(ba).paint(g);
-		}
-		for (int ba = 0; ba < creatures.size(); ba++) {
-			creatures.get(ba).paint(g);
-		}
-	}
+	protected abstract boolean testWin();
+
+	protected abstract void winOperation();
 }

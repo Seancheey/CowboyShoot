@@ -1,8 +1,11 @@
 package com.seancheey.gui;
 
-import javax.swing.*;
+import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
 
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import com.seancheey.data.Mainclass;
 import com.seancheey.data.KeyHandling.KeyHandler;
@@ -13,7 +16,8 @@ public class MainFrame extends JFrame {
 	public final static double screenRatio = (double) 900 / (double) 600;
 	public static Dimension frameSize = GuiTool.getFittedSize(screenRatio);
 	public static MainPanel mainPanel;
-	public static KeyHandler keyhandler;
+
+	public KeyHandler keyhandler;
 
 	public MainFrame() {
 		super("Western Guardian");
@@ -24,15 +28,19 @@ public class MainFrame extends JFrame {
 		setResizable(false);
 		icon = Toolkit.getDefaultToolkit().getImage("resource/Avoider/avoiderAvoider1.png");
 		setIconImage(icon);
-		mainPanel = new MainPanel();
-		add(mainPanel);
 		keyhandler = new KeyHandler();
 		addKeyListener(keyhandler);
-		// addKeyListener(new GameKeyHandler());
+		mainPanel = new MainPanel(this);
+		add(mainPanel);
 		repaint();
 	}
 
-	public static JFrame getFrame() {
-		return Mainclass.frame;
+	public void switchPanel(JPanel oldPanel, JPanel newPanel) {
+		newPanel.setEnabled(true);
+		mainPanel.add(newPanel);
+		mainPanel.remove(oldPanel);
+		oldPanel.setEnabled(false);
+		keyhandler.switchPanel(newPanel);
+		mainPanel.repaint();
 	}
 }

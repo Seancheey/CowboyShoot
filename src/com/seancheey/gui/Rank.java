@@ -1,18 +1,33 @@
 package com.seancheey.gui;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
 import com.seancheey.data.RankModifier;
 
-import java.awt.*;
-import java.awt.event.*;
-
-public class Rank extends JPanel implements ActionListener {
+public class Rank extends StdPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
+
 	private static JButton exitButton;
 	private static JLabel[] rankList = new JLabel[10];
 
-	public Rank() {
+	public Rank(MainFrame mainFrame) {
+		super(mainFrame);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == exitButton)
+			switchTo(new Menu(mainFrame));
+	}
+
+	@Override
+	protected void init() {
 		GuiTool.initializePanel(this);
 		// exitButton
 		exitButton = new JButton("Back");
@@ -43,10 +58,5 @@ public class Rank extends JPanel implements ActionListener {
 			rankList[ba].setLocation(
 					GuiTool.convertPoint(450 - rankList[ba].getWidth() / 2, (rankList[ba].getHeight() + 10) * ba + 20));
 		}
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == exitButton)
-			GuiTool.switchPanel(this, MainPanel.menu);
 	}
 }

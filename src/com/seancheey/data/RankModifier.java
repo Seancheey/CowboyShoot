@@ -4,12 +4,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-import com.seancheey.gui.MainPanel;
-
 public class RankModifier {
-	private RandomAccessFile r;
 	public static int[] scoreList = new int[10];
 	public static String[] nameList = new String[10];
+	private RandomAccessFile r;
 
 	public RankModifier() {
 		try {
@@ -60,6 +58,5 @@ public class RankModifier {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		MainPanel.rank.refreshRank();
 	}
 }

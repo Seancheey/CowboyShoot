@@ -1,6 +1,6 @@
 package com.seancheey.data;
 
-import com.seancheey.gui.*;
+import com.seancheey.gui.MainFrame;
 
 /*Cowboy Alpha0.1
  * �޸ı���
@@ -18,10 +18,9 @@ import com.seancheey.gui.*;
 
 public class Mainclass {
 	public static String version = "Alpha0.1";
-	public static MainFrame frame;
 
 	public static void main(String[] args) {
-		frame = new MainFrame();
+		MainFrame frame = new MainFrame();
 		frame.repaint();
 	}
 }

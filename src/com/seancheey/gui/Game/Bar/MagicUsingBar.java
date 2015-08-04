@@ -1,13 +1,19 @@
 package com.seancheey.gui.Game.Bar;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 import com.seancheey.entityAttributes.TypeGetter;
 import com.seancheey.gui.GuiTool;
 import com.seancheey.magic.Magic;
-
-import java.awt.event.*;
-import java.awt.*;
 
 public class MagicUsingBar extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -40,6 +46,17 @@ public class MagicUsingBar extends JPanel implements ActionListener {
 		}
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == button[0])
+			Magic.boom.conjure();
+		else if (e.getSource() == button[1])
+			Magic.hallowRing.conjure();
+		else if (e.getSource() == button[2])
+			Magic.heal.conjure();
+	}
+
+	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		readCanUse();
@@ -70,14 +87,5 @@ public class MagicUsingBar extends JPanel implements ActionListener {
 			canUse[2] = true;
 		else
 			canUse[2] = false;
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == button[0])
-			Magic.boom.conjure();
-		else if (e.getSource() == button[1])
-			Magic.hallowRing.conjure();
-		else if (e.getSource() == button[2])
-			Magic.heal.conjure();
 	}
 }

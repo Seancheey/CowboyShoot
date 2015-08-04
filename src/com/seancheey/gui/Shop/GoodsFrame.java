@@ -1,11 +1,16 @@
 package com.seancheey.gui.Shop;
 
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 import com.seancheey.gui.GuiTool;
-
-import java.awt.*;
-import java.awt.event.*;
 
 public class GoodsFrame extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -25,24 +30,26 @@ public class GoodsFrame extends JPanel implements ActionListener {
 		add(b, BorderLayout.SOUTH);
 	}
 
-	public void setGoodName(String name) {
-		goodName = name;
-	}
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
 
-	public void setDiscreption(String discreption) {
-		this.discreption = discreption;
 	}
 
 	public void addImage(Image addedImage) {
 		goodImage = addedImage;
 	}
 
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
 	}
 
-	public void actionPerformed(ActionEvent arg0) {
+	public void setDiscreption(String discreption) {
+		this.discreption = discreption;
+	}
 
+	public void setGoodName(String name) {
+		goodName = name;
 	}
 }

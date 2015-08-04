@@ -32,14 +32,6 @@ public abstract class Spawner extends Creature {
 	}
 
 	@Override
-	public void makeMove() {
-		if (leftTime <= 0) {
-			resetLeftTime();
-			spawn(createRandomSpawnPoint());
-		}
-	}
-
-	@Override
 	public void collisionOperation(int id) {
 		if (!invulnerable) {
 			if (TypeGetter.getType(id) == CreatureType.BULLET) {
@@ -49,10 +41,6 @@ public abstract class Spawner extends Creature {
 		}
 	}
 
-	private void resetLeftTime() {
-		leftTime = spawnInterval + (int) (0.15 * spawnInterval * (r.nextDouble() * 2 - 1));
-	}
-
 	private Point createRandomSpawnPoint() {
 		double angle = r.nextDouble() * 2 * Math.PI;
 		double radius = r.nextDouble() * spawnRadius;
@@ -60,14 +48,27 @@ public abstract class Spawner extends Creature {
 				getCenterPosition().y + (int) (radius * Math.sin(angle)));
 	}
 
-	public void setType(String[] type) {
-		spawnList = type;
+	@Override
+	public void makeMove() {
+		if (leftTime <= 0) {
+			resetLeftTime();
+			spawn(createRandomSpawnPoint());
+		}
 	}
 
+	@Override
 	public void paint(Graphics g) {
 		if (visible) {
 			super.paint(g);
 		}
+	}
+
+	private void resetLeftTime() {
+		leftTime = spawnInterval + (int) (0.15 * spawnInterval * (r.nextDouble() * 2 - 1));
+	}
+
+	public void setType(String[] type) {
+		spawnList = type;
 	}
 
 	protected abstract void spawn(Point position);

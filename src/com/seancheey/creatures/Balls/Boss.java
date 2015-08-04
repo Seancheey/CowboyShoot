@@ -1,11 +1,9 @@
 package com.seancheey.creatures.Balls;
 
-import com.seancheey.entityAttributes.TypeGetter;
 import com.seancheey.entityAttributes.CreatureType;
+import com.seancheey.entityAttributes.TypeGetter;
 import com.seancheey.gui.Game.Game;
 import com.seancheey.gui.Game.GameBar;
-
-import java.lang.Math;
 
 public class Boss extends Ball {
 	public int v = 150;
@@ -16,6 +14,16 @@ public class Boss extends Ball {
 		reset();
 	}
 
+	@Override
+	public void collisionOperation(int id) {
+		if (TypeGetter.getType(id) == CreatureType.BULLET) {
+			HP -= 1;
+			Game.map.getCreatureList().get(id).addHP(-1);
+			GameBar.scoreBoard.scoreAdd(1);
+		}
+	}
+
+	@Override
 	public void makeMove() {
 		double angle = Math.atan2(TypeGetter.getPlayer(0).getCenterPosition().y - getCenterPosition().y,
 				TypeGetter.getPlayer(0).getCenterPosition().x - getCenterPosition().x);
@@ -43,14 +51,7 @@ public class Boss extends Ball {
 		}
 	}
 
-	public void collisionOperation(int id) {
-		if (TypeGetter.getType(id) == CreatureType.BULLET) {
-			HP -= 1;
-			Game.map.getCreatureList().get(id).addHP(-1);
-			GameBar.scoreBoard.scoreAdd(1);
-		}
-	}
-
+	@Override
 	public void resetSize() {
 	}
 }

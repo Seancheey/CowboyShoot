@@ -1,7 +1,12 @@
 package com.seancheey.creatures.Spawner;
 
 import java.awt.Point;
-import com.seancheey.creatures.Balls.*;
+
+import com.seancheey.creatures.Balls.Ball;
+import com.seancheey.creatures.Balls.Boss;
+import com.seancheey.creatures.Balls.Charger;
+import com.seancheey.creatures.Balls.FastBall;
+import com.seancheey.creatures.Balls.NormalBall;
 import com.seancheey.gui.Game.Game;
 
 public class BallSpawner extends Spawner {
@@ -25,6 +30,7 @@ public class BallSpawner extends Spawner {
 		visible = true;
 	}
 
+	@Override
 	protected void spawn(Point position) {
 		// create a new ball
 		Ball newBall;

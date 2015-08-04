@@ -12,16 +12,16 @@ public class Analyser implements MapData {
 	private static Image background;
 	private static String mapName;
 
+	public static Entity getEntity(int id) {
+		return entities.get(id);
+	}
+
 	Analyser(MapData data) {
 		entities = data.getEntities();
 		width = data.getSize().width;
 		height = data.getSize().height;
 		background = data.getBackground();
 		mapName = data.getName();
-	}
-
-	public static Entity getEntity(int id) {
-		return entities.get(id);
 	}
 
 	@Override
@@ -35,12 +35,12 @@ public class Analyser implements MapData {
 	}
 
 	@Override
-	public Dimension getSize() {
-		return new Dimension(width, height);
+	public String getName() {
+		return mapName;
 	}
 
 	@Override
-	public String getName() {
-		return mapName;
+	public Dimension getSize() {
+		return new Dimension(width, height);
 	}
 }

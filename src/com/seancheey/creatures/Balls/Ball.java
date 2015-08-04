@@ -3,8 +3,8 @@ package com.seancheey.creatures.Balls;
 import java.util.Random;
 
 import com.seancheey.creatures.Creature;
-import com.seancheey.entityAttributes.TypeGetter;
 import com.seancheey.entityAttributes.CreatureType;
+import com.seancheey.entityAttributes.TypeGetter;
 import com.seancheey.gui.Game.Game;
 import com.seancheey.gui.Game.GameBar;
 
@@ -15,21 +15,7 @@ public abstract class Ball extends Creature {
 
 	}
 
-	public void resetSize() {
-		int previousSize = getSize();
-		setSize(HP * 10);
-		px += (previousSize - getSize()) / 2;
-		py += (previousSize - getSize()) / 2;
-	}
-
-	public void refreshAction() {
-		makeMove();
-	}
-
-	public int getSize() {
-		return getWidth();
-	}
-
+	@Override
 	public void collisionOperation(int id) {
 		if (TypeGetter.getType(id) == CreatureType.BULLET) {
 			HP -= 1;
@@ -40,7 +26,23 @@ public abstract class Ball extends Creature {
 		}
 	}
 
+	@Override
 	public void deathOperation() {
 		kill();
+	}
+
+	public int getSize() {
+		return getWidth();
+	}
+
+	public void refreshAction() {
+		makeMove();
+	}
+
+	public void resetSize() {
+		int previousSize = getSize();
+		setSize(HP * 10);
+		px += (previousSize - getSize()) / 2;
+		py += (previousSize - getSize()) / 2;
 	}
 }

@@ -1,14 +1,29 @@
 package com.seancheey.gui;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Setting extends JPanel implements ActionListener {
+import javax.swing.JButton;
+
+public class Setting extends StdPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
+
 	private static JButton exitButton = new JButton("Back");
 
-	public Setting() {
+	public Setting(MainFrame mainFrame) {
+		super(mainFrame);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == exitButton)
+			switchTo(new Menu(mainFrame));
+	}
+
+	@Override
+	protected void init() {
 		GuiTool.initializePanel(this);
 
 		exitButton.setFont(new Font("Bradley Hand ITC", Font.BOLD, 50));
@@ -20,10 +35,5 @@ public class Setting extends JPanel implements ActionListener {
 		exitButton.addActionListener(this);
 		exitButton.setFocusable(false);
 		add(exitButton);
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == exitButton)
-			GuiTool.switchPanel(this, MainPanel.menu);
 	}
 }

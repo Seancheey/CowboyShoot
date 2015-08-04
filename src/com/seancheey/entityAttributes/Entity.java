@@ -5,10 +5,11 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
+
 import com.seancheey.gui.GuiTool;
 import com.seancheey.gui.Game.GamePanel;
 
-public abstract class Entity{
+public abstract class Entity {
 	public int HP = 10, maxHP;
 
 	protected double px, py, vx, vy;

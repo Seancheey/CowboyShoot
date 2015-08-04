@@ -6,15 +6,17 @@ import java.awt.Toolkit;
 import com.seancheey.creatures.Players.Player;
 import com.seancheey.creatures.Spawner.BallSpawner;
 import com.seancheey.creatures.Walls.Wall;
+import com.seancheey.data.KeyHandling.GameKeyHandler;
 
 public class Village extends LevelData {
 
-	public Village() {
+	public Village(GameKeyHandler gameKeyHandler) {
+		super(gameKeyHandler);
 		mapSize = new Dimension(1000, 1000);
 		backgroundImage = Toolkit.getDefaultToolkit().getImage("resource/Background/meadow.jpg");
 		clearcreatures();
 		// add creatures
-		creatures.add(new Player());
+		creatures.add(new Player(gameKeyHandler));
 		creatures.add(new BallSpawner(100, 100, 3000));
 		creatures.add(new BallSpawner(800, 500, 2800));
 		BallSpawner b = new BallSpawner(450, -1000, 15000);
@@ -29,8 +31,8 @@ public class Village extends LevelData {
 	}
 
 	@Override
-	protected void winOperation() {
-
+	protected boolean testFail() {
+		return false;
 	}
 
 	@Override
@@ -39,7 +41,7 @@ public class Village extends LevelData {
 	}
 
 	@Override
-	protected boolean testFail() {
-		return false;
+	protected void winOperation() {
+
 	}
 }

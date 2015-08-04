@@ -1,6 +1,8 @@
 package com.seancheey.gui.Game;
 
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 import com.seancheey.entityAttributes.TypeGetter;
 import com.seancheey.gui.GuiTool;
@@ -9,6 +11,18 @@ public class Animation {
 	private static Image image;
 	private static int time = 0;
 	private static boolean started = false;
+
+	public void newImage(Image newImage) {
+		image = newImage;
+		time = 0;
+		started = true;
+	}
+
+	public void newImage(String imagePath) {
+		image = Toolkit.getDefaultToolkit().getImage(imagePath);
+		time = 0;
+		started = true;
+	}
 
 	public void paint(Graphics g) {
 		if (started) {
@@ -21,18 +35,6 @@ public class Animation {
 					GuiTool.fitWidth(time * 6), GuiTool.fitWidth(time * 6), GamePanel.game);
 			time++;
 		}
-	}
-
-	public void newImage(String imagePath) {
-		image = Toolkit.getDefaultToolkit().getImage(imagePath);
-		time = 0;
-		started = true;
-	}
-
-	public void newImage(Image newImage) {
-		image = newImage;
-		time = 0;
-		started = true;
 	}
 
 }

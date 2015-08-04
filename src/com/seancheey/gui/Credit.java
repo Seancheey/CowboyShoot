@@ -8,28 +8,38 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import com.seancheey.data.Mainclass;
 
-public class Credit extends JPanel implements ActionListener {
+public class Credit extends StdPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
 	private static int labelNum = 12;
+
 	private static JLabel[] label = new JLabel[labelNum];
 	private static JLabel title = new JLabel("Credit");
 	private static int py;
 	private static JButton exitbutton = new JButton("exit");
 
-	public Credit() {
-		GuiTool.initializePanel(this);
-		initialize();
+	public Credit(MainFrame mainFrame) {
+		super(mainFrame);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		py = GuiTool.fitHeight(550);
+		switchTo(new Menu(mainFrame));
+	}
+
+	@Override
+	protected void init() {
+		py = GuiTool.fitHeight(550);
 		setBackground(Color.BLACK);
 		// title
 		title.setForeground(Color.WHITE);
 		title.setFont(new Font("Bradley Hand ITC", Font.BOLD, 50));
 		title.setSize(title.getPreferredSize());
-		title.setLocation((int) ((MainFrame.frameSize.width - title.getWidth()) / 2), py);
+		title.setLocation((MainFrame.frameSize.width - title.getWidth()) / 2, py);
 		add(title);
 		// label
 		label[0] = new JLabel("Designer:");
@@ -48,7 +58,7 @@ public class Credit extends JPanel implements ActionListener {
 			label[ba].setForeground(Color.WHITE);
 			label[ba].setFont(new Font("serif", Font.BOLD, 21));
 			label[ba].setSize(label[ba].getPreferredSize());
-			label[ba].setLocation((int) ((MainFrame.frameSize.width - label[ba].getWidth()) / 2),
+			label[ba].setLocation((MainFrame.frameSize.width - label[ba].getWidth()) / 2,
 					py + title.getHeight() + 50 + ba * (label[0].getHeight() + 20));
 			add(label[ba]);
 		}
@@ -65,16 +75,13 @@ public class Credit extends JPanel implements ActionListener {
 		add(exitbutton);
 	}
 
-	public static void initialize() {
-		py = GuiTool.fitHeight(550);
-	}
-
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
-		title.setLocation((int) ((MainFrame.frameSize.width - title.getWidth()) / 2), py);
+		title.setLocation((MainFrame.frameSize.width - title.getWidth()) / 2, py);
 		for (int ba = 0; ba < labelNum; ba++)
-			label[ba].setLocation((int) ((MainFrame.frameSize.width - label[ba].getWidth()) / 2),
+			label[ba].setLocation((MainFrame.frameSize.width - label[ba].getWidth()) / 2,
 					py + title.getHeight() + 50 + ba * (label[0].getHeight() + 20));
 		try {
 			Thread.sleep(20);
@@ -82,12 +89,7 @@ public class Credit extends JPanel implements ActionListener {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		MainFrame.getFrame().repaint();
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		initialize();
-		GuiTool.switchPanel(this, MainPanel.menu);
+		mainFrame.repaint();
 	}
 
 }

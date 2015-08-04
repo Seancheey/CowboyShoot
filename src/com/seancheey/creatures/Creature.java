@@ -9,6 +9,13 @@ public abstract class Creature extends Entity {
 
 	}
 
+	public void addHP(int addValue) {
+		HP += addValue;
+	}
+
+	protected void deathOperation() {
+	}
+
 	private void detectCollision() {
 		for (int i = 0; i < Game.map.getCreatureList().size(); i++) {
 			if (Math.abs(Game.map.getCreatureList().get(i).getCenterPosition().x
@@ -27,14 +34,6 @@ public abstract class Creature extends Entity {
 		return maxHP;
 	}
 
-	public void addHP(int addValue) {
-		HP += addValue;
-	}
-
-	public void kill() {
-		super.kill();
-	}
-
 	public void hurt(Creature aim, int damage) {
 		aim.hurted(this, damage);
 	}
@@ -43,7 +42,9 @@ public abstract class Creature extends Entity {
 		HP -= damage;
 	}
 
-	protected void deathOperation() {
+	@Override
+	public void kill() {
+		super.kill();
 	}
 
 	public void makeMove() {

@@ -2,8 +2,8 @@ package com.seancheey.magic;
 
 import java.awt.event.KeyEvent;
 
-import com.seancheey.entityAttributes.TypeGetter;
 import com.seancheey.entityAttributes.CreatureType;
+import com.seancheey.entityAttributes.TypeGetter;
 import com.seancheey.gui.Game.Game;
 import com.seancheey.gui.Game.GameBar;
 
@@ -13,6 +13,7 @@ public class Boom extends Magic {
 		super("resource/Magic/avoiderMagic1.png", KeyEvent.VK_Z, 35, 3000);
 	}
 
+	@Override
 	public void execution() {
 		for (int ba = 0; ba < Game.map.getCreatureList().size(); ba++) {
 			if (TypeGetter.getType(ba) == CreatureType.BALL) {

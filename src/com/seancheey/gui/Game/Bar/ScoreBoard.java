@@ -1,8 +1,13 @@
 package com.seancheey.gui.Game.Bar;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 
 import com.seancheey.gui.GuiTool;
 
@@ -12,6 +17,10 @@ public class ScoreBoard extends JPanel {
 	private static Image background = Toolkit.getDefaultToolkit()
 			.getImage("resource/Background/avoiderBarBackgorund1.png");
 
+	public static int getScore() {
+		return score;
+	}
+
 	public ScoreBoard() {
 		setLayout(null);
 		setSize(GuiTool.fitSize(100, 50));
@@ -19,6 +28,7 @@ public class ScoreBoard extends JPanel {
 		setBackground(Color.WHITE);
 	}
 
+	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(background, 0, 0, GuiTool.fitWidth(100), GuiTool.fitHeight(50), this);
@@ -28,15 +38,11 @@ public class ScoreBoard extends JPanel {
 		repaint();
 	}
 
-	public void scoreAdd(int added) {
-		score += added;
-	}
-
 	public void resetScore() {
 		score = 0;
 	}
 
-	public static int getScore() {
-		return score;
+	public void scoreAdd(int added) {
+		score += added;
 	}
 }

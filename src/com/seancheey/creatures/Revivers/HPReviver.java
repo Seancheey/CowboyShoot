@@ -1,7 +1,7 @@
 package com.seancheey.creatures.Revivers;
 
-import com.seancheey.entityAttributes.TypeGetter;
 import com.seancheey.entityAttributes.CreatureType;
+import com.seancheey.entityAttributes.TypeGetter;
 import com.seancheey.gui.Game.Bar.StatusBar;
 
 public class HPReviver extends Reviver {
@@ -12,6 +12,7 @@ public class HPReviver extends Reviver {
 		reset();
 	}
 
+	@Override
 	public void collisionOperation(int id) {
 		super.collisionOperation(id);
 		if (TypeGetter.getType(id) == CreatureType.PLAYER) {

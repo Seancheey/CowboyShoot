@@ -18,14 +18,6 @@ public class Wall extends Creature {
 	}
 
 	@Override
-	public void deathOperation() {
-	}
-
-	@Override
-	public void makeMove() {
-	}
-
-	@Override
 	public void collisionOperation(int id) {
 		// if collide horizontally, vx*=-1
 		if (Math.abs(Game.map.getCreatureList().get(id).getCenterPosition().x
@@ -40,5 +32,13 @@ public class Wall extends Creature {
 
 			Game.map.getCreatureList().get(id).setVy(Game.map.getCreatureList().get(id).getVy() * -1);
 		}
+	}
+
+	@Override
+	public void deathOperation() {
+	}
+
+	@Override
+	public void makeMove() {
 	}
 }

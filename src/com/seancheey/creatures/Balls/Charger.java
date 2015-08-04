@@ -44,7 +44,7 @@ public class Charger extends Ball {
 				setVy(v * Math.sin(angle));
 				refreshRotation();
 			} else {
-				//TODO ??
+				// TODO ??
 			}
 		} else {
 			v = 0.01;
@@ -54,7 +54,7 @@ public class Charger extends Ball {
 			setVy(v * Math.sin(angle));
 			refreshRotation();
 		}
-		//TODO fill the make move method
+		// TODO fill the make move method
 	}
 
 }

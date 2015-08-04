@@ -1,11 +1,27 @@
 package com.seancheey.levels;
 
+import com.seancheey.data.KeyHandling.GameKeyHandler;
+
 public class CurrentLevel extends LevelData {
 	// loaded level
 	private static LevelData LVL;
 
-	public CurrentLevel() {
-		switchMap(new Village());
+	public CurrentLevel(GameKeyHandler gameKeyHandler) {
+		super(gameKeyHandler);
+		switchMap(new Village(gameKeyHandler));
+	}
+
+	@Override
+	protected void failOperation() {
+		LVL.failOperation();
+	}
+
+	public void pauseAll() {
+		// TODO pause
+	}
+
+	public void resumeAll() {
+		// TODO resume
 	}
 
 	public void switchMap(LevelData newLevel) {
@@ -19,22 +35,9 @@ public class CurrentLevel extends LevelData {
 		LVL = newLevel;
 	}
 
-	public void pauseAll() {
-		//TODO pause
-	}
-
-	public void resumeAll() {
-		//TODO resume
-	}
-
 	@Override
-	protected void failOperation() {
-		LVL.failOperation();
-	}
-
-	@Override
-	protected void winOperation() {
-		LVL.winOperation();
+	protected boolean testFail() {
+		return LVL.testFail();
 	}
 
 	@Override
@@ -43,8 +46,8 @@ public class CurrentLevel extends LevelData {
 	}
 
 	@Override
-	protected boolean testFail() {
-		return LVL.testFail();
+	protected void winOperation() {
+		LVL.winOperation();
 	}
 
 }

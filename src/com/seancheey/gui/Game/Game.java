@@ -1,10 +1,15 @@
 package com.seancheey.gui.Game;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.Date;
-import java.awt.*;
+
+import javax.swing.JPanel;
 
 import com.seancheey.creatures.Creature;
+import com.seancheey.data.KeyHandling.GameKeyHandler;
 import com.seancheey.gui.GuiTool;
 import com.seancheey.gui.MainFrame;
 import com.seancheey.levels.CurrentLevel;
@@ -19,7 +24,8 @@ import com.seancheey.levels.CurrentLevel;
 public class Game extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private static Image background = Toolkit.getDefaultToolkit().getImage("resource/Background/meadow.jpg");
-	public static CurrentLevel map = new CurrentLevel();
+	public static CurrentLevel map;
+	private GameKeyHandler gameKeyHandler;
 	/**
 	 * the milliseconds of the last time of refresh (used to get the time
 	 * difference between two refresh action)
@@ -30,11 +36,19 @@ public class Game extends JPanel {
 	 */
 	private int timeMore = 0;
 
-	public Game() {
+	public Game(GameKeyHandler gameKeyHandler) {
 		setSize(GuiTool.fitSize(900, 550));
 		setBackground(Color.WHITE);
 		setLayout(null);
 		lastRefreshTime = new Date().getTime();
+		this.gameKeyHandler = gameKeyHandler;
+		map = new CurrentLevel(this.gameKeyHandler);
+	}
+
+	private void paintAllStuff(Graphics g) {
+		g.drawImage(background, 0, 0, MainFrame.frameSize.width, MainFrame.frameSize.height, this);
+		map.paintMap(g);
+		GamePanel.animation.paint(g);
 	}
 
 	/** ESSENTIAL!!!! */
@@ -51,11 +65,5 @@ public class Game extends JPanel {
 		timeMore = timeMore % 20;
 		lastRefreshTime = new Date().getTime();
 		repaint();
-	}
-
-	private void paintAllStuff(Graphics g) {
-		g.drawImage(background, 0, 0, MainFrame.frameSize.width, MainFrame.frameSize.height, this);
-		map.paintMap(g);
-		GamePanel.animation.paint(g);
 	}
 }

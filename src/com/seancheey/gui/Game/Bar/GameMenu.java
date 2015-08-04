@@ -1,21 +1,48 @@
 package com.seancheey.gui.Game.Bar;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
 import com.seancheey.gui.GuiTool;
-import com.seancheey.gui.MainPanel;
+import com.seancheey.gui.MainFrame;
+import com.seancheey.gui.Menu;
+import com.seancheey.gui.StdPanel;
 import com.seancheey.gui.Game.Game;
+import com.seancheey.gui.Game.GamePanel;
+import com.seancheey.gui.Shop.ShopPanel;
 
-import java.awt.*;
-import java.awt.event.*;
-
-public class GameMenu extends JPanel implements ActionListener {
+public class GameMenu extends StdPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
+
 	private static final int buttonNum = 2;
 	private JButton[] button = new JButton[buttonNum];
 	private Image[] buttonIcon = new Image[buttonNum];
+	private MainFrame mainFrame;
 
-	public GameMenu() {
-		setLayout(null);
+	public GameMenu(MainFrame mainFrame) {
+		super(mainFrame);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == button[0]) {
+			Game.map.pauseAll();
+			mainFrame.switchPanel(new GamePanel(mainFrame), new ShopPanel(mainFrame));
+		} else if (e.getSource() == button[1]) {
+			Game.map.pauseAll();
+			mainFrame.switchPanel(new GamePanel(mainFrame), new Menu(mainFrame));
+		}
+	}
+
+	@Override
+	protected void init() {
 		setLocation(GuiTool.convertPoint(new Point(550, 0)));
 		setSize(GuiTool.fitSize(350, 50));
 		setBackground(Color.GREEN);
@@ -34,21 +61,12 @@ public class GameMenu extends JPanel implements ActionListener {
 		}
 	}
 
+	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		for (int ba = 0; ba < buttonNum; ba++)
 			g.drawImage(buttonIcon[ba], GuiTool.fitWidth(ba * 180), 0, GuiTool.fitWidth(180), GuiTool.fitWidth(50),
 					this);
 		repaint();
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == button[0]) {
-			Game.map.pauseAll();
-			GuiTool.switchPanel(MainPanel.gamePanel, MainPanel.shopPanel);
-		} else if (e.getSource() == button[1]) {
-			Game.map.pauseAll();
-			GuiTool.switchPanel(MainPanel.gamePanel, MainPanel.menu);
-		}
 	}
 }

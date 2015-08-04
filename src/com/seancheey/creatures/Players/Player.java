@@ -1,15 +1,18 @@
 package com.seancheey.creatures.Players;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 import com.seancheey.creatures.Creature;
 import com.seancheey.creatures.Bullets.Bullet;
 import com.seancheey.data.RankModifier;
+import com.seancheey.data.KeyHandling.GameKeyHandler;
+import com.seancheey.data.KeyHandling.PlayerKeyHandler;
 import com.seancheey.entityAttributes.CreatureType;
 import com.seancheey.entityAttributes.TypeGetter;
 import com.seancheey.gui.GuiTool;
-import com.seancheey.gui.MainPanel;
 import com.seancheey.gui.Game.Game;
 import com.seancheey.gui.Game.GamePanel;
 import com.seancheey.gui.Game.Bar.ScoreBoard;
@@ -17,11 +20,11 @@ import com.seancheey.gui.Game.Bar.StatusBar;
 import com.seancheey.magic.Magic;
 
 public class Player extends Creature {
-	private static final int maxSpeed = 300;
-	// Magic point and maximum Magic point of player
-	public int MP = 100, maxMP = 100;
+	private static final int maxSpeed = 30;
 	// image of the gun
 	private static Image gunImage = Toolkit.getDefaultToolkit().getImage("resource/Player/gun1.png");
+	// Magic point and maximum Magic point of player
+	public int MP = 100, maxMP = 100;
 	// The time left that the player shows the gun in his hand
 	private int showGunTime = 1000;
 	// Rotation of the gun
@@ -32,6 +35,7 @@ public class Player extends Creature {
 	private double shootDirection = 0;
 	// control if the player will shoot and the frequency of the shooting
 	private Thread shootThread = new Thread() {
+		@Override
 		public void run() {
 			for (;;) {
 				try {
@@ -44,15 +48,18 @@ public class Player extends Creature {
 			}
 		}
 	};
+	private PlayerKeyHandler playerKeyHandler = new PlayerKeyHandler();
 
-	public Player() {
+	public Player(GameKeyHandler keyHandler) {
 		setType("player");
 		setImage("resource/Player/Cowboy2.png");
 		setSize(50);
 		reset();
 		shootThread.start();
+		keyHandler.addListener(playerKeyHandler);
 	}
 
+	@Override
 	public void collisionOperation(int id) {
 		if (TypeGetter.getType(id) == CreatureType.BALL) {
 			HP -= 1;
@@ -64,41 +71,33 @@ public class Player extends Creature {
 		StatusBar.setHealth(HP);
 	}
 
-	public void deathOperation() {
-		new RankModifier().addNewRank("Sean", ScoreBoard.getScore());
-		GuiTool.switchPanel(MainPanel.gamePanel, MainPanel.menu);
-	}
-
-	public void movePress(int key) {
-		if (key == KeyEvent.VK_W && getVy() > 0 - maxSpeed) {
-			setVy(getVy() - 301);
-		} else if (key == KeyEvent.VK_S && getVy() < maxSpeed) {
-			setVy(getVy() + 301);
-		} else if (key == KeyEvent.VK_A && getVx() > 0 - maxSpeed) {
-			setVx(getVx() - 301);
-		} else if (key == KeyEvent.VK_D && getVx() < maxSpeed) {
-			setVx(getVx() + 301);
-		}
-	}
-
-	public void moveRelease(int key) {
-		if (key == KeyEvent.VK_A || key == KeyEvent.VK_D) {
-			setVx(0);
-		} else if (key == KeyEvent.VK_S || key == KeyEvent.VK_W) {
-			setVy(0);
-		}
-	}
-
 	public void conjure(Magic Magic) {
 		Magic.conjure();
 	}
 
-	public void makeMove() {
-		// TODO fill the make move method
+	@Override
+	public void deathOperation() {
+		new RankModifier().addNewRank("Sean", ScoreBoard.getScore());
+		// TODO exit the game panel
 	}
 
-	public void refreshAction() {
-		makeMove();
+	@Override
+	public void makeMove() {
+		super.makeMove();
+		vx = maxSpeed * playerKeyHandler.getMovingDirection().x;
+		vy = maxSpeed * playerKeyHandler.getMovingDirection().y;
+	}
+
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		if (showGunTime > 0) {
+			Graphics2D g2d = (Graphics2D) g;
+			g2d.rotate(gunRotation, GuiTool.fitWidth(getCenterPosition().x), GuiTool.fitHeight(getCenterPosition().y));
+			g.drawImage(gunImage, GuiTool.fitWidth(getCenterPosition().x), GuiTool.fitHeight(getCenterPosition().y),
+					GuiTool.fitWidth(30), GuiTool.fitHeight(15), GamePanel.game);
+			g2d.rotate(-gunRotation, GuiTool.fitWidth(getCenterPosition().x), GuiTool.fitHeight(getCenterPosition().y));
+		}
 	}
 
 	public void reset() {
@@ -112,39 +111,10 @@ public class Player extends Creature {
 		MP = 100;
 	}
 
-	private void shoot(double direction) {
+	public void shoot(double direction) {
 		double bulletvx = (vx + Math.cos(direction) * 20);
 		double bulletvy = (vy + Math.sin(direction) * 20);
 		Bullet b = new Bullet(getCenterPosition(), bulletvx, bulletvy);
 		Game.map.addNew(b);
-	}
-
-	public void shootPress(double direction) {
-		shootDirection = direction;
-		isShooting = true;
-		gunRotation = shootDirection;
-		showGunTime = 1000;
-	}
-
-	@SuppressWarnings("deprecation")
-	public void kill() {
-		super.kill();
-		shootThread.suspend();
-		shootThread = null;
-	}
-
-	public void shootRelease(double direction) {
-		isShooting = false;
-	}
-
-	public void paint(Graphics g) {
-		super.paint(g);
-		if (showGunTime > 0) {
-			Graphics2D g2d = (Graphics2D) g;
-			g2d.rotate(gunRotation, GuiTool.fitWidth(getCenterPosition().x), GuiTool.fitHeight(getCenterPosition().y));
-			g.drawImage(gunImage, GuiTool.fitWidth(getCenterPosition().x), GuiTool.fitHeight(getCenterPosition().y),
-					GuiTool.fitWidth(30), GuiTool.fitHeight(15), GamePanel.game);
-			g2d.rotate(-gunRotation, GuiTool.fitWidth(getCenterPosition().x), GuiTool.fitHeight(getCenterPosition().y));
-		}
 	}
 }

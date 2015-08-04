@@ -20,12 +20,12 @@ public class Village implements MapData {
 	}
 
 	@Override
-	public Dimension getSize() {
-		return new Dimension(900, 600);
+	public String getName() {
+		return null;
 	}
 
 	@Override
-	public String getName() {
-		return null;
+	public Dimension getSize() {
+		return new Dimension(900, 600);
 	}
 }
