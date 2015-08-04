@@ -8,11 +8,6 @@ public class Charger extends Ball {
 	public Charger() {
 		setType("charger");
 		setImage("resource/Ball/Zombie.png");
-		reset();
-	}
-
-	@Override
-	public void reset() {
 		chargeTime = 1800 + r.nextInt(400);
 		notifiedTime = 1000;
 		if (r.nextDouble() < 0.98)
@@ -40,7 +35,6 @@ public class Charger extends Ball {
 
 	@Override
 	public void makeMove() {
-		chargeTime -= timer.getDelay();
 		if (chargeTime <= 0) {
 			v = 500;
 			if (notifiedTime == 1000) {
@@ -49,13 +43,8 @@ public class Charger extends Ball {
 				setVx(v * Math.cos(angle));
 				setVy(v * Math.sin(angle));
 				refreshRotation();
-				notifiedTime -= timer.getDelay();
 			} else {
-				notifiedTime -= timer.getDelay();
-				if (notifiedTime <= 0) {
-					notifiedTime = 1000;
-					chargeTime = 1800 + r.nextInt(400);
-				}
+				//TODO ??
 			}
 		} else {
 			v = 0.01;
@@ -65,8 +54,7 @@ public class Charger extends Ball {
 			setVy(v * Math.sin(angle));
 			refreshRotation();
 		}
-		px += getVx() / 1000 * timer.getDelay();
-		py += getVy() / 1000 * timer.getDelay();
+		//TODO fill the make move method
 	}
 
 }

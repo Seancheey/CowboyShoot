@@ -8,25 +8,6 @@ public class NormalBall extends Ball {
 		reset();
 	}
 
-	public void makeMove() {
-		if (px < 885 - getSize() && px > 0)
-			px += getVx() / 1000 * timer.getDelay();
-		else {
-			setVx(getVx() * -1);
-			px += getVx() / 1000 * timer.getDelay();
-			HP -= 1;
-			refreshRotation();
-		}
-		if (py < 550 - getSize() && py > 0)
-			py += getVy() / 1000 * timer.getDelay();
-		else {
-			setVy(getVy() * -1);
-			py += getVy() / 1000 * timer.getDelay();
-			HP -= 1;
-			refreshRotation();
-		}
-	}
-
 	public void reset() {
 		setVx((2 * r.nextDouble() - 1) * 100);
 		setVy((2 * r.nextDouble() - 1) * 100);

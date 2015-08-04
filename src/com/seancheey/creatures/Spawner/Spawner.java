@@ -32,36 +32,11 @@ public abstract class Spawner extends Creature {
 	}
 
 	@Override
-	public void refreshAction() {
-		leftTime -= timer.getDelay();
+	public void makeMove() {
 		if (leftTime <= 0) {
 			resetLeftTime();
 			spawn(createRandomSpawnPoint());
 		}
-	}
-
-	@Override
-	public void reset() {
-		HP = 100;
-	}
-
-	@Override
-	public void deathOperation() {
-		if (!respawnable)
-			kill();
-		else {
-			try {
-				Thread.sleep(30000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			reset();
-		}
-	}
-
-	@Override
-	public void makeMove() {
-
 	}
 
 	@Override

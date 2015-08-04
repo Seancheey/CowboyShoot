@@ -48,7 +48,5 @@ public class BallSpawner extends Spawner {
 		}
 		newBall.setPosition(position.x - newBall.getWidth() / 2, position.y - newBall.getHeight() / 2);
 		Game.map.addNew(newBall);
-
-		newBall.startRefresh();
 	}
 }

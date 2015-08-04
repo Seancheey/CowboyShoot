@@ -19,22 +19,12 @@ public class CurrentLevel extends LevelData {
 		LVL = newLevel;
 	}
 
-	public void resetAll() {
-		for (int ba = 0; ba < creatures.size(); ba++) {
-			creatures.get(ba).reset();
-		}
-	}
-
 	public void pauseAll() {
-		for (int ba = 0; ba < creatures.size(); ba++) {
-			creatures.get(ba).timer.stop();
-		}
+		//TODO pause
 	}
 
 	public void resumeAll() {
-		for (int ba = 0; ba < creatures.size(); ba++) {
-			creatures.get(ba).timer.restart();
-		}
+		//TODO resume
 	}
 
 	@Override

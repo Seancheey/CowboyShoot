@@ -57,12 +57,6 @@ public abstract class LevelData implements MapData, CreatureCreator {
 			System.out.println("com.seancheey.levels.Leveldata---setID---Map ID cannot be changed twice");
 	}
 
-	public void startRefreshAll() {
-		for (int ba = 0; ba < creatures.size(); ba++) {
-			creatures.get(ba).startRefresh();
-		}
-	}
-
 	@SuppressWarnings("deprecation")
 	protected void kill() {
 		entities = null;
@@ -158,7 +152,6 @@ public abstract class LevelData implements MapData, CreatureCreator {
 			}
 			// give ID and Start refreshing
 			creatures.get(id).setID(id);
-			creatures.get(id).startRefresh();
 		}
 	}
 

@@ -18,14 +18,6 @@ public class Wall extends Creature {
 	}
 
 	@Override
-	public void refreshAction() {
-	}
-
-	@Override
-	public void reset() {
-	}
-
-	@Override
 	public void deathOperation() {
 	}
 

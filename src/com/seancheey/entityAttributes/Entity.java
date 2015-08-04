@@ -7,15 +7,11 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import com.seancheey.gui.GuiTool;
 import com.seancheey.gui.Game.GamePanel;
-import com.seancheey.timing.*;
 
-public abstract class Entity implements RefreshAction {
-	public Timer timer;
+public abstract class Entity{
 	public int HP = 10, maxHP;
 
-	protected double px, py;
-	private double vx;
-	private double vy;
+	protected double px, py, vx, vy;
 
 	private double rotation = 0;
 	private Image image;
@@ -23,7 +19,6 @@ public abstract class Entity implements RefreshAction {
 	private String type;
 
 	protected Entity() {
-		timer = new Timer(20, this);
 		image = null;
 		id = -1;
 		type = "nil";
@@ -64,7 +59,6 @@ public abstract class Entity implements RefreshAction {
 	}
 
 	public void kill() {
-		timer.kill();
 		id = -1;
 		width = 0;
 		height = 0;
@@ -146,9 +140,5 @@ public abstract class Entity implements RefreshAction {
 
 	protected void setWidth(int width) {
 		this.width = width;
-	}
-
-	public void startRefresh() {
-		timer.start();
 	}
 }

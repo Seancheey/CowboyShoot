@@ -21,8 +21,6 @@ public class Boss extends Ball {
 				TypeGetter.getPlayer(0).getCenterPosition().x - getCenterPosition().x);
 		setVx(v * Math.cos(angle));
 		setVy(v * Math.sin(angle));
-		px += getVx() / 1000 * timer.getDelay();
-		py += getVy() / 1000 * timer.getDelay();
 		refreshRotation();
 	}
 

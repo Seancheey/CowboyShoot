@@ -1,7 +1,5 @@
 package com.seancheey.creatures.Balls;
 
-import com.seancheey.entityAttributes.TypeGetter;
-
 public class FastBall extends Ball {
 	public double v = 50;
 
@@ -9,18 +7,6 @@ public class FastBall extends Ball {
 		setType("fastBall");
 		setImage("resource/Ball/Spider.png");
 		reset();
-	}
-
-	public void makeMove() {
-		v += 0.03 * timer.getDelay();
-		double angle = Math.atan2(TypeGetter.getPlayer(0).getCenterPosition().y - getCenterPosition().y,
-				TypeGetter.getPlayer(0).getCenterPosition().x - getCenterPosition().x);
-
-		setVx(v * Math.cos(angle));
-		setVy(v * Math.sin(angle));
-		px += getVx() / 1000 * timer.getDelay();
-		py += getVy() / 1000 * timer.getDelay();
-		refreshRotation();
 	}
 
 	public void reset() {

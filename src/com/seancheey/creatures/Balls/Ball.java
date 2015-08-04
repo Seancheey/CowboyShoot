@@ -41,7 +41,6 @@ public abstract class Ball extends Creature {
 	}
 
 	public void deathOperation() {
-
 		kill();
 	}
 }

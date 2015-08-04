@@ -65,7 +65,6 @@ public class Player extends Creature {
 	}
 
 	public void deathOperation() {
-		timer.kill();
 		new RankModifier().addNewRank("Sean", ScoreBoard.getScore());
 		GuiTool.switchPanel(MainPanel.gamePanel, MainPanel.menu);
 	}
@@ -95,24 +94,11 @@ public class Player extends Creature {
 	}
 
 	public void makeMove() {
-		if (px < 900 - getWidth() - 15 && px > 0)
-			px += getVx() / 1000 * timer.getDelay();
-		else {
-			px += (px <= 0 ? 1 : -1);
-			setVx(getVx() * -1);
-		}
-		if (py < 600 - getHeight() - 50 && py > 0)
-			py += getVy() / 1000 * timer.getDelay();
-		else {
-			py += (py <= 0 ? 1 : -1);
-			setVy(getVy() * -1);
-		}
+		// TODO fill the make move method
 	}
 
 	public void refreshAction() {
 		makeMove();
-		if (showGunTime > 0)
-			showGunTime -= timer.getDelay();
 	}
 
 	public void reset() {
@@ -127,9 +113,9 @@ public class Player extends Creature {
 	}
 
 	private void shoot(double direction) {
-		Bullet b = new Bullet();
-		b.shooted(direction, this, 400);
-		b.startRefresh();
+		double bulletvx = (vx + Math.cos(direction) * 20);
+		double bulletvy = (vy + Math.sin(direction) * 20);
+		Bullet b = new Bullet(getCenterPosition(), bulletvx, bulletvy);
 		Game.map.addNew(b);
 	}
 

@@ -16,7 +16,6 @@ public abstract class Reviver extends Creature {
 	}
 
 	public void refreshAction() {
-		timeLeft -= timer.getDelay();
 		if (timeLeft <= 0)
 			kill();
 	}

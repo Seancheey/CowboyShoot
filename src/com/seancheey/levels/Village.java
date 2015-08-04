@@ -21,7 +21,6 @@ public class Village extends LevelData {
 		b.setType(new String[] { "boss" });
 		creatures.add(b);
 		creatures.add(new Wall(300, 0, 100, 100));
-		startRefreshAll();
 	}
 
 	@Override
